@@ -514,6 +514,44 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+  .calendar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px; /* reduce padding */
+  }
+
+  .cal-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .weekdays, .days {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px; /* smaller gap so all days fit */
+    padding: 0;
+  }
+
+  .day {
+    min-height: 32px;
+    padding: 2px;
+  }
+
+  .day .num {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+
+  .event-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
 }
 
   /* =========================
