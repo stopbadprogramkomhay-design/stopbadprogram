@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Creative Corner – S.T.O.P B.A.D Program</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #cfe8ff, #eaf6ff);
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffffcc;
+      padding: 18px 45px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-circle {
+      width:60px;
+      height:60px;
+      background:url("logo.png") no-repeat center/cover;
+      border-radius:50%;
+    }
+
+    .logo h1 {
+      font-size: 1.45rem;
+      margin: 0;
+      color: #023e8a;
+      font-weight: 700;
+    }
+
+    .logo p {
+      margin: 0;
+      font-size: 0.78rem;
+      color: #555;
+    }
+
+    nav a {
+      color:#023e8a;
+      text-decoration:none;
+      margin-left:25px;
+      font-weight:600;
+    }
+
+    nav a:hover {
+      color:#0077b6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 35px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+      margin-right: 400px; /* added space for TOC */
+    }
+
+    .section-title {
+      color: #023e8a;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 20px; /* reduce margin to make space for the line */
+      text-align: center;
+      position: relative;
+    }
+
+    /* Divider line below the section title */
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 100%;          /* full width of the container */
+    /* optional: limit maximum length */
+      height: 3px;          /* thickness of the line */
+      background-color: #0077b6; /* line color */
+      margin: 20px auto 0 auto;  /* spacing above and center it */
+      border-radius: 2px;   /* slightly rounded edges */
+    }
+
+
+    /* LAYOUT LIKE IMAGE */
+    .stopbad-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 60px;
+      row-gap: 28px;
+      align-items: start;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* PILL CARDS */
+    .acro-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 30px;
+      border-radius: 999px;
+      background: #f5f5f5;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .acro-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .acro-letter {
+      font-size: 1.8rem;
+      font-weight: 700;
+      min-width: 30px;
+      color: #ffffff;
+    }
+
+    .acro-text,
+    .acro-translation {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      transition: opacity 0.3s;
+    }
+
+    .acro-translation {
+      position: absolute;
+      left: 70px;
+      right: 30px;
+      opacity: 0;
+      color: #fff;
+    }
+
+    .acro-card:hover .acro-text {
+      opacity: 0;
+    }
+
+    .acro-card:hover .acro-translation {
+      opacity: 1;
+    }
+
+    .stop .acro-card:nth-child(1) { background:#b36bff; }
+    .stop .acro-card:nth-child(2) { background:#4dabf7; }
+    .stop .acro-card:nth-child(3) { background:#ffd966; color:#333; }
+    .stop .acro-card:nth-child(4) { background:#9bd27d; color:#333; }
+
+    .bad .acro-card:nth-child(1) { background:#ff5aa5; }
+    .bad .acro-card:nth-child(2) { background:#d90429; }
+    .bad .acro-card:nth-child(3) { background:#ffc36b; color:#333; }
+
+    @media (max-width: 900px) {
+      .stopbad-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .acro-card {
+        border-radius: 20px;
+      }
+
+      .acro-translation {
+        position: static;
+        opacity: 1;
+        margin-top: 6px;
+      }
+
+      .acro-text {
+        opacity: 1;
+      }
+    }
+
+    .toc {
+      position: fixed;
+      top: 120px;
+      right: 40px;
+      width: 230px;
+      background: #ffffffee; /* semi-transparent */
+      border-left: 5px solid #023e8a; /* accent color */
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      z-index: 999;
+    }
+
+    .toc h3 {
+      margin: 0 0 15px 0;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #023e8a;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .toc ul li {
+      margin-bottom: 12px;
+    }
+
+    .toc ul li a {
+      display: block;
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #000000;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .toc ul li a:hover {
+      background-color: #0077b620; /* subtle highlight */
+      color: #023e8a;
+    }
+
+    /* Hide TOC on small screens */
+    @media (max-width: 900px) {
+      .toc {
+        display: none;
+      }
+    }
+
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .toc {
+        display: none;
+      }
+    }
+
+    .definition-box1, .definition-box2 {
+      background: #023e8a;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 18px 30px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      margin-bottom: 20px;
+    }
+
+    .definition-box1:hover,
+    .definition-box2:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .definition-box1 p,
+    .definition-box2 p {
+      margin: 5px 0;
+      transition: opacity 0.3s;
+    }
+
+    .definition-box1 .translation,
+    .definition-box2 .translation {
+      position: absolute;
+      top: 70px;
+      left: 30px;
+      right: 30px;
+      opacity: 0;
+    }
+
+    .definition-box1:hover .original,
+    .definition-box2:hover .original {
+      opacity: 0;
+    }
+
+    .definition-box1:hover .translation,
+    .definition-box2:hover .translation {
+      opacity: 1;
+    }
+
+    #link {
+      color: #023e8a;
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-circle"></div>
+    <div>
+      <h1>S.T.O.P B.A.D PROGRAM</h1>
+      <p>Stand Together, Overcome the Pain Against Bullying and Discrimination</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="creative_corner.html">Creative Corner</a>
+    <a href="hotline.html">Hotline</a>
+  </nav>
+</header>
+
+<!-- Table of Contents -->
+<aside class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#definition">Definition</a></li>
+    <li><a href="#action">Actionable Plan</a></li>
+    <li><a href="#stakeholders">Stakeholders</a></li>
+    <li><a href="#signs">Signs of Bullied</a></li>
+  </ul>
+</aside>
+
+<main>
+  <section id="definition" class="container">
+  <h2 class="section-title">Bullying and Discrimination</h2>
+
+    <div class="definition-box1">
+      <h3>What is Bullying?</h3>
+      <p class="original">Bullying is repeated aggressive behavior, intentional harm, or intimidation towards someone perceived as vulnerable. It can be physical, verbal, or social.</p>
+      <p class="translation">Ang pambubully ay paulit-ulit na agresibong pag-uugali, sinadyang pananakit, o pananakot sa isang tao na itinuturing na mahina. Maaari itong pisikal, berbal, o sosyal.</p>
+    </div>
+
+    <div class="definition-box2">
+      <h3>What is Discrimination?</h3>
+      <p class="original">Discrimination is the unfair or prejudicial treatment of individuals based on characteristics such as race, gender, age, religion, or disability. It often denies people equal opportunities or rights.</p>
+      <p class="translation">Ang diskriminasyon ay hindi patas o mapanuring pagtrato sa mga indibidwal batay sa katangian tulad ng lahi, kasarian, edad, relihiyon, o kapansanan. Madalas nitong ipinagkakait ang pantay na oportunidad o karapatan sa tao.</p>
+    </div>
+</section>
+
+    <section id="action" class="container">
+    <h2 class="section-title">7 Actionable Framework</h2>
+
+    <div class="stopbad-layout">
+
+      <!-- STOP -->
+      <div class="column stop">
+        <div class="acro-card">
+          <div class="acro-letter">S</div>
+          <p class="acro-text"><b>Seek Support:</b> Find a safe adult, a teacher, or a counselor immediately.</p>
+          <p class="acro-translation"><b>Kalungkutan:</b> Madalas malungkot o tahimik.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">T</div>
+          <p class="acro-text"><b>Tell the Truth:</b> Report the specific details of the incident via the Guidance Office.</p>
+          <p class="acro-translation"><b>Problema sa paaralan:</b> Hindi pumapasok o mababang grado.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">O</div>
+          <p class="acro-text"><b>Observe & Own:</b> Note the facts, the who, what, and where; take ownership of the decision to stand up/report.</p>
+          <p class="acro-translation"><b>Sobrang iritasyon:</b> Biglaang galit o iyak.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">P</div>
+          <p class="acro-text"><b>Protect Yourself/Others:</b> Move away from the situation and use safe coping skills.</p>
+          <p class="acro-translation"><b>Mga marka:</b> Hindi maipaliwanag na pasa.</p>
+        </div>
+      </div>
+
+      <!-- BAD -->
+      <div class="column bad">
+        <div class="acro-card">
+          <div class="acro-letter">B</div>
+          <p class="acro-text"><b>Be an Upstander:</b> Intervene safely by distracting, calling for help, or supporting the victim.</p>
+          <p class="acro-translation"><b>Pag-iisa:</b> Iniiwasan ang kaibigan.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">A</div>
+          <p class="acro-text"><b>Access Resources:</b> Use the S.T.O.P. B.A.D. website and hotline numbers for help.</p>
+          <p class="acro-translation"><b>Pag-aalala:</b> Takot sa ilang tao.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">D</div>
+          <p class="acro-text"><b>Do Not Engage:</b> Do not retaliate, argue, or share rumors/online posts about the incident.</p>
+          <p class="acro-translation"><b>Mababang tiwala:</b> Panghuhusga sa sarili.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+    <section id="stakeholders" class="container">
+    <h2 class="section-title">7 Stakeholders</h2>
+
+    <div class="stopbad-layout">
+
+      <div class="column stop">
+        <div class="acro-card">
+          <div class="acro-letter">S</div>
+          <p class="acro-text"><b>Students:</b> Leads the peer-to-peer workshops and monitors the school climate.</p>
+          <p class="acro-translation"><b>Kalungkutan:</b> Madalas malungkot o tahimik.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">T</div>
+          <p class="acro-text"><b>Teachers:</b> Enforces the policy consistently in their classrooms and reports observations.</p>
+          <p class="acro-translation"><b>Problema sa paaralan:</b> Hindi pumapasok o mababang grado.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">O</div>
+          <p class="acro-text"><b>Organizations:</b> Provides continuous oversight, external resources, annual review.</p>
+          <p class="acro-translation"><b>Sobrang iritasyon:</b> Biglaang galit o iyak.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">P</div>
+          <p class="acro-text"><b>Parents:</b> Unexplained injuries.</p>
+          <p class="acro-translation"><b>Mga marka:</b> Hindi maipaliwanag na pasa.</p>
+        </div>
+      </div>
+
+      <!-- BAD -->
+      <div class="column bad">
+        <div class="acro-card">
+          <div class="acro-letter">B</div>
+          <p class="acro-text"><b>Bystanders:</b> The primary target for behavioral change and reporting.</p>
+          <p class="acro-translation"><b>Pag-iisa:</b> Iniiwasan ang kaibigan.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">A</div>
+          <p class="acro-text"><b>Authorities:</b> Fear or nervousness.</p>
+          <p class="acro-translation"><b>Pag-aalala:</b> Takot sa ilang tao.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">D</div>
+          <p class="acro-text"><b>Data:</b> The <a id="link" href="about.us">Stop Bad Program</a>.</p>
+          <p class="acro-translation"><b>Mababang tiwala:</b> Panghuhusga sa sarili.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signs" class="container">
+    <h2 class="section-title">Signs of Bullying (S.T.O.P B.A.D)</h2>
+
+    <div class="stopbad-layout">
+
+      <div class="column stop">
+        <div class="acro-card">
+          <div class="acro-letter">S</div>
+          <p class="acro-text"><b>Sadness:</b> Often unhappy or withdrawn.</p>
+          <p class="acro-translation"><b>Kalungkutan:</b> Madalas malungkot o tahimik.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">T</div>
+          <p class="acro-text"><b>Trouble at school:</b> Avoidance or poor performance.</p>
+          <p class="acro-translation"><b>Problema sa paaralan:</b> Hindi pumapasok o mababang grado.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">O</div>
+          <p class="acro-text"><b>Overstimulation:</b> Mood swings or anger.</p>
+          <p class="acro-translation"><b>Sobrang iritasyon:</b> Biglaang galit o iyak.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">P</div>
+          <p class="acro-text"><b>Physical marks:</b> Unexplained injuries.</p>
+          <p class="acro-translation"><b>Mga marka:</b> Hindi maipaliwanag na pasa.</p>
+        </div>
+      </div>
+
+      <!-- BAD -->
+      <div class="column bad">
+        <div class="acro-card">
+          <div class="acro-letter">B</div>
+          <p class="acro-text"><b>Being isolated:</b> Avoiding friends.</p>
+          <p class="acro-translation"><b>Pag-iisa:</b> Iniiwasan ang kaibigan.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">A</div>
+          <p class="acro-text"><b>Anxiety:</b> Fear or nervousness.</p>
+          <p class="acro-translation"><b>Pag-aalala:</b> Takot sa ilang tao.</p>
+        </div>
+
+        <div class="acro-card">
+          <div class="acro-letter">D</div>
+          <p class="acro-text"><b>Derogatory self-talk:</b> Negative self-image.</p>
+          <p class="acro-translation"><b>Mababang tiwala:</b> Panghuhusga sa sarili.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

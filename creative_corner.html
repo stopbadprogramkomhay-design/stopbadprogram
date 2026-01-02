@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Creative Corner – S.T.O.P B.A.D Program</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --brand-blue: #0b66a6;
+      --brand-blue-2: #0077b6;
+      --muted: #55606a;
+      --card-bg: rgba(255,255,255,0.95);
+      --radius-lg: 18px;
+    }
+
+    html, body { height: 100%; margin:0; font-family:"Poppins",sans-serif; color:#222; }
+    body {
+      background: url("bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body::before {
+      content:"";
+      position:fixed;
+      inset:0;
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(3px);
+      z-index:-1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.7);
+      padding: 18px 45px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-circle {
+      width:60px;
+      height:60px;
+      background:url("logo.png") no-repeat center/cover;
+      border-radius:50%;
+    }
+
+    .logo h1 {
+      font-size: 1.45rem;
+      margin: 0;
+      color: #023e8a;
+      font-weight: 700;
+    }
+
+    .logo p {
+      margin: 0;
+      font-size: 0.78rem;
+      color: #555;
+    }
+
+    nav.primary a {
+      color:#023e8a;
+      text-decoration:none;
+      margin-left:25px;
+      font-weight:600;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    nav.primary a:hover {
+      color:#0077b6;
+    }
+
+    .menu-toggle {
+      display:none;
+      flex-direction:column;
+      gap:5px;
+      background:none;
+      border:none;
+      cursor:pointer;
+    }
+    .menu-toggle span {
+      width:26px;
+      height:3px;
+      background:#023e8a;
+      border-radius:2px;
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: 70px auto;
+      padding: 55px 55px;
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      box-shadow:
+        0 4px 10px rgba(0,0,0,0.04),
+        0 14px 28px rgba(0,0,0,0.06),
+        0 35px 65px rgba(0,0,0,0.08);
+      animation: containerFade 0.7s ease forwards;
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .container h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 2.5rem;
+      letter-spacing: 0.5px;
+      color: #023e8a;
+    }
+
+    .container p.subtitle {
+      margin-bottom: 45px;
+      font-size: 1.15rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    @keyframes containerFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .filter-buttons {
+       display: flex;
+       justify-content: center;
+       gap: 15px;
+       flex-wrap: wrap;
+       margin-bottom: 40px;
+    }
+
+    .filter-btn {
+       background: #bfe0ff;
+       border: none;
+       padding: 12px 25px;
+       border-radius: 30px;
+       cursor: pointer;
+       font-weight: 600;
+       color: #023e8a;
+       transition: 0.3s ease;
+       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #0077b6;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+      padding: 10px;
+    }
+
+    .creative-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow:
+        0 4px 8px rgba(0,0,0,0.05),
+        0 12px 28px rgba(0,0,0,0.08);
+      transition: 0.35s ease;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.6);
+      animation: floatFade 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .creative-card:hover {
+      transform: translateY(-10px);
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.08),
+        0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    .creative-card h4 {
+      margin: 15px 0 8px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #023e8a;
+    }
+
+    .creative-card p {
+      margin: 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .creative-img {
+      width: 100%;
+      height: 220px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: #ddd;
+      transition: 0.35s ease;
+    }
+
+    .creative-card:hover .creative-img {
+      transform: scale(1.06);
+    }
+
+    .creative-card:nth-child(1) { animation-delay: 0.05s; }
+    .creative-card:nth-child(2) { animation-delay: 0.10s; }
+    .creative-card:nth-child(3) { animation-delay: 0.15s; }
+    .creative-card:nth-child(4) { animation-delay: 0.20s; }
+    .creative-card:nth-child(5) { animation-delay: 0.25s; }
+    .creative-card:nth-child(6) { animation-delay: 0.30s; }
+
+    @keyframes floatFade {
+      to {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      padding-top: 60px;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      display: block;
+      margin: auto;
+      max-width: 85%;
+      max-height: 80vh;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      animation: zoomIn 0.35s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      position: absolute;
+      top: 22px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color:#ccc;
+    }
+
+    #caption {
+      text-align: center;
+      color: #eee;
+      font-size: 1.1rem;
+      margin-top: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      color: #555;
+      font-size: 0.95rem;
+      margin-top: 60px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    }
+
+    @media(max-width:1000px){
+      header {
+        padding:14px 18px;
+      }
+
+      .logo {
+        gap:10px;
+      }
+
+      .logo-circle {
+        width:42px;
+        height:42px;
+      }
+
+      .logo h1 {
+        font-size:1.05rem;
+      }
+
+      .logo p {
+        font-size:0.7rem;
+      }
+
+      .menu-toggle {
+        display:flex;
+      }
+
+      nav.primary {
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:rgba(255,255,255,0.96);
+        display:none;
+        flex-direction:column;
+        z-index:2000;
+        box-shadow:0 10px 20px rgba(0,0,0,0.12);
+      }
+
+      nav.primary.show {
+        display:flex;
+      }
+
+      nav.primary a {
+        margin:0;
+        padding:14px;
+        text-align:center;
+        font-size:0.95rem;
+        border-bottom:1px solid rgba(0,0,0,0.05);
+      }
+
+      .container {
+        margin: 40px 12px;
+        padding: 25px 20px;
+        border-radius: 18px;
+      }
+
+      .container h2 {
+        font-size:1.8rem;
+      }
+
+      .container p.subtitle {
+        font-size:0.95rem;
+        margin-bottom: 25px;
+      }
+
+      .filter-buttons {
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+
+      .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 18px;
+      }
+
+      .creative-card {
+        padding: 12px;
+      }
+
+      .creative-img {
+        height: 160px;
+      }
+
+      .creative-card h4 {
+        font-size: 1rem;
+      }
+
+      .creative-card p {
+        font-size: 0.8rem;
+      }
+
+      footer {
+        font-size:0.8rem;
+        padding:12px;
+      }
+
+      .subtitle {
+        font-size: 0.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-circle"></div>
+    <div>
+      <h1>S.T.O.P B.A.D PROGRAM</h1>
+      <p>Stand Together, Overcome the Pain Against Bullying and Discrimination</p>
+    </div>
+  </div>
+
+  <button class="menu-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="primary" role="navigation" aria-label="Main Navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About Us</a>
+    <a href="creative_corner.html">Creative Corner</a>
+    <a href="hotline.html">Hotline</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Creative Corner</h2>
+  <p class="subtitle">
+    Welcome to the Creative Corner! — a space dedicated to showcasing the talents and creativity of Commonwealth High School students across all grade levels and sections. This platform features the outputs of students from their respective sections, created through the implementation of the S.T.O.P. B.A.D. program.
+  </p>
+
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="art">Art</button>
+    <button class="filter-btn" data-category="poem">Poems</button>
+    <button class="filter-btn" data-category="poster">Posters</button>
+    <button class="filter-btn" data-category="slogan">Slogans</button>
+  </div>
+
+  <div class="gallery-grid" id="gallery">
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="poster_sample.jpg" alt="">
+      <h4>Title</h4>
+      <p>Creator</p>
+    </div>
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="slogan_bg.jpg" alt="">
+      <h4>Title</h4>
+      <p>Creator</p>
+    </div>
+    <div class="creative-card" data-category="art">
+      <img class="creative-img" src="art_sample1.jpg" alt="">
+      <h4>Title</h4>
+      <p>Creator</p>
+    </div>
+    <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="poem_bg.jpg" alt="">
+      <h4>Title</h4>
+      <p>Creator</p>
+    </div>
+
+    <div id="imgModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImg">
+      <div id="caption"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 S.T.O.P B.A.D Program. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav.primary');
+  toggleBtn.addEventListener('click', () => {
+    nav.classList.toggle('show');
+    toggleBtn.classList.toggle('active');
+  });
+
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const captionText = document.getElementById("caption");
+  document.querySelectorAll(".creative-img").forEach(img => {
+    img.style.cursor = "pointer";
+    img.onclick = () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      captionText.innerHTML = img.parentElement.querySelector("h4").innerText;
+    };
+  });
+  document.querySelector(".close").onclick = () => { modal.style.display = "none"; };
+</script>
+</body>
+</html>
