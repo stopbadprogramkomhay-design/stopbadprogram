@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/png" href="logo.png" />
   <title>About Us – S.T.O.P B.A.D Program</title>
 
   <!-- Fonts & Icons -->
@@ -402,216 +403,315 @@
       }
     }
 
-/* =========================
-   PHONE (max-width: 600px)
-========================= */
-@media (max-width: 600px) {
+    @media (max-width: 600px) {
 
-  header {
-    padding: 14px 16px;
-  }
+      header {
+        padding: 14px 16px;
+      }
 
-  .logo-circle {
-    width: 40px;
-    height: 40px;
-  }
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+      }
 
-  .logo h1 {
-    font-size: 1rem;
-  }
+      .logo h1 {
+        font-size: 1rem;
+      }
 
-  .logo p {
-    font-size: 0.65rem;
-  }
+      .logo p {
+        font-size: 0.65rem;
+      }
 
-  .menu-toggle {
-    display: flex;
-  }
+      .menu-toggle {
+        display: flex;
+      }
 
-  nav.primary {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.96);
-    display: none;
-    flex-direction: column;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-  }
+      nav.primary {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.96);
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      }
 
-  nav.primary.show {
-    display: flex;
-  }
+      nav.primary.show {
+        display: flex;
+      }
 
-  nav.primary a {
-    padding: 14px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    text-align: center;
-    margin: 0;
-  }
+      nav.primary a {
+        padding: 14px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        text-align: center;
+        margin: 0;
+      }
 
-  .page {
-    margin: 22px 10px;
-    padding: 18px;
-    border-radius: 18px;
-  }
+      .page {
+        margin: 22px 10px;
+        padding: 18px;
+        border-radius: 18px;
+      }
 
-  .page-head {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-  }
+      .page-head {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+      }
 
-  .page-head img {
-    max-width: 160px;
-  }
+      .page-head img {
+        max-width: 160px;
+      }
 
-  .page-head h2 {
-    font-size: 1.4rem;
-  }
+      .page-head h2 {
+        font-size: 1.4rem;
+      }
 
-  .page-sub {
-    font-size: 0.9rem;
-  }
+      .page-sub {
+        font-size: 0.9rem;
+      }
 
-  .mv {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
+      .mv {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
 
-  .card {
-    padding: 14px;
-  }
+      .card {
+        padding: 14px;
+      }
 
-  .card h3 {
-    font-size: 1rem;
-  }
+      .card h3 {
+        font-size: 1rem;
+      }
 
-  .card p {
-    font-size: 0.88rem;
-  }
+      .card p {
+        font-size: 0.88rem;
+      }
 
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .split {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+      .split {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
 
-  footer {
-    font-size: 0.75rem;
-    margin: 24px 0 18px;
-  }
+      footer {
+        font-size: 0.75rem;
+        margin: 24px 0 18px;
+      }
 
-  html {
-  scroll-behavior: smooth;
-}
+      html {
+        scroll-behavior: smooth;
+      }
 
-body {
-  -webkit-overflow-scrolling: touch;
-}
+      body {
+        -webkit-overflow-scrolling: touch;
+      }
 
-  .calendar {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px; /* reduce padding */
-  }
+        .calendar {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 12px;
+        }
 
-  .cal-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
+        .cal-head {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
 
-  .weekdays, .days {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px; /* smaller gap so all days fit */
-    padding: 0;
-  }
+        .weekdays, .days {
+          grid-template-columns: repeat(7, 1fr);
+          gap: 2px;
+          padding: 0;
+        }
 
-  .day {
-    min-height: 32px;
-    padding: 2px;
-  }
+        .day {
+          min-height: 32px;
+          padding: 2px;
+        }
 
-  .day .num {
-    width: 24px;
-    height: 24px;
-    font-size: 0.75rem;
-  }
+        .day .num {
+          width: 24px;
+          height: 24px;
+          font-size: 0.75rem;
+        }
 
-  .event-list {
-    max-height: 200px;
-    overflow-y: auto;
-  }
+        .event-list {
+          max-height: 200px;
+          overflow-y: auto;
+        }
 
-  .split {
-    grid-template-columns: 1fr;
-  }
-  
-.contact h3 {
-  font-size: 0.7rem;
-  }
+        .split {
+          grid-template-columns: 1fr;
+        }
 
-}
+        .contact-section {
+          margin-top:60px;
+          text-align:center;
+        }
 
-  /* =========================
-   TABLET (max-width: 1024px)
-========================= */
-@media (max-width: 1024px) {
+        .contact-section h3 {
+          font-size:1rem;
+          color:#023e8a;
+          margin-bottom:25px;
+        }
 
-  header {
-    padding: 16px 28px;
-  }
+        .contact-section p {
+          font-size:0.8rem;
+          color:#444;
+          margin-bottom:10px;
+        }
 
-  .page {
-    margin: 36px 22px;
-    padding: 30px;
-    border-radius: 22px;
-  }
+        .contact-section a {
+          color:#0077b6;
+          font-weight:600;
+        }
 
-  .page-head h2 {
-    font-size: 1.8rem;
-  }
+        .contact-section a:hover {
+          color:#023e8a;
+          text-decoration:underline;
+        }
 
-  .page-sub {
-    font-size: 1rem;
-  }
+        .events h4 {
+          font-size: 1rem;
+          margin: 0;
+        }
 
-  .mv {
-    grid-template-columns: 1fr;
-  }
+        #selectedDateLabel {
+          font-size: 0.8rem;
+        }
 
-  .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+        .no-events {
+          font-size: 0.8rem;
+          color: #6c757d;
+        }
 
-  .split {
-    grid-template-columns: 1fr;
-  }
+        .events {
+          padding: 12px;
+        }
 
-  .calendar,
-  .events {
-    border-radius: 12px;
-  }
+        .event-item {
+          padding: 8px;
+        }
 
-  html {
-  scroll-behavior: smooth;
-}
+        .event-item .time {
+          font-size: 0.8rem;
+        }
 
-body {
-  -webkit-overflow-scrolling: touch;
-}
+        .event-item .desc {
+          font-size: 0.85rem;
+        }
+      }
 
-.contact h3 {
-  font-size: 0.7rem;
-  }
-}
+    @media (max-width: 1024px) {
 
+      header {
+        padding: 16px 28px;
+      }
+
+      .page {
+        margin: 36px 22px;
+        padding: 30px;
+        border-radius: 22px;
+      }
+
+      .page-head h2 {
+        font-size: 1.8rem;
+      }
+
+      .page-sub {
+        font-size: 1rem;
+      }
+
+      .mv {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar,
+      .events {
+        border-radius: 12px;
+      }
+
+      html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .contact-section {
+      margin-top:60px;
+      text-align:center;
+    }
+
+    .contact-section h3 {
+      font-size:1rem;
+      color:#023e8a;
+      margin-bottom:25px;
+    }
+
+    .contact-section p {
+      font-size:0.8rem;
+      color:#444;
+      margin-bottom:10px;
+    }
+
+    .contact-section a {
+      color:#0077b6;
+      font-weight:600;
+    }
+
+    .contact-section a:hover {
+      color:#023e8a;
+      text-decoration:underline;
+    }
+
+    .events h4 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    #selectedDateLabel {
+      font-size: 0.8rem;
+    }
+
+    .no-events {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .events {
+      padding: 12px;
+    }
+
+    .event-item {
+      padding: 8px;
+    }
+
+    .event-item .time {
+      font-size: 0.8rem;
+    }
+
+    .event-item .desc {
+      font-size: 0.85rem;
+    }
+   }
   </style>
+
 </head>
 
 <body>
@@ -895,5 +995,3 @@ The <b>S.T.O.P B.A.D Program</b> stands for <i>Stand Together, Overcome the Pain
   </script>
 </body>
 </html>
-
-
