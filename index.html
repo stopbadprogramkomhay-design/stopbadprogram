@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <title>Creative Corner – S.T.O.P B.A.D Program</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="logo.png"/>
+<title>S.T.O.P B.A.D Program – Homepage</title>
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
+<style>
+:root{
+  --blue: #023e8a;
+  --blue-dark: #003a8f;
+  --blue-light: #0077b6;
+  --text-muted: #55606a;
+  --radius-lg: 20px;
+  --shadow-md: 0 14px 40px rgba(0,0,0,0.15);
+}
+
+
+    html, body { height: 100%; margin:0; font-family:"Poppins",sans-serif; color:#222; }
     body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #cfe8ff, #eaf6ff);
-      color: #222;
+      background: url("bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body::before {
+      content:"";
+      position:fixed;
+      inset:0;
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(3px);
+      z-index:-1;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #ffffffcc;
+      background: rgba(255,255,255,0.7);
       padding: 18px 45px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      backdrop-filter: blur(6px);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -55,248 +72,461 @@
       color: #555;
     }
 
-    nav a {
+    nav.primary a {
       color:#023e8a;
       text-decoration:none;
       margin-left:25px;
       font-weight:600;
+      font-size: 1rem;
+      transition: 0.2s;
     }
-
-    nav a:hover {
+    nav.primary a:hover {
       color:#0077b6;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 40px;
-      background: #ffffff;
-      border-radius: 35px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.1);
-      margin-right: 400px; 
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+  }
+
+  .menu-toggle span{
+    width:28px;
+    height:3px;
+    background:var(--blue);
+    border-radius:3px;
+  }
+
+  footer{
+    text-align:center;
+    color:#6c7580;
+    font-size:0.9rem;
+    margin:48px 0 28px;
+  }
+
+  .hero{
+    padding:100px 30px 90px;
+  }
+
+  .hero-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:60px;
+    align-items:center;
+  }
+
+  .hero-content h2{
+    font-size:0.9rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--blue-light);
+    margin-bottom:16px;
+  }
+
+  .hero-content h1{
+    font-size:clamp(2.6rem,4vw,3.2rem);
+    font-weight:700;
+    color:var(--blue);
+    line-height:1.15;
+    margin-bottom:22px;
+  }
+
+  .hero-content p{
+    max-width:560px;
+    font-size:1.05rem;
+    line-height:1.75;
+    color:var(--text-muted);
+  }
+
+  .hero-action{
+    background:#fff;
+    padding:40px 35px;
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+  }
+
+  .hero-action h3{
+    font-size:1.3rem;
+    color:var(--blue);
+    margin-bottom:14px;
+  }
+
+  .hero-action p{
+    font-size:0.95rem;
+    line-height:1.6;
+    color:#555;
+    margin-bottom:28px;
+  }
+
+  .hero-action a{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    font-weight:600;
+    padding:14px 0;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+
+  .hero-action .primary{
+    background:var(--blue-dark);
+    color:#fff;
+    background-color: #003a8f;
+    border: 2px solid #003a8f;
+  border-radius: 999px;
+  }
+
+  .hero-action .secondary{
+    background:var(--blue-dark);
+    color:#fff;
+    background-color: #003a8f;
+    border: 2px solid #003a8f;
+  border-radius: 999px;
+  }
+
+  .help-callout{
+    background:linear-gradient(135deg,#023e8a,#0077b6);
+    padding:90px 30px;
+  }
+
+  .help-inner{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    color:#fff;
+  }
+
+  .help-callout h2{
+    font-size:2.1rem;
+    font-weight:700;
+    margin-bottom:18px;
+  }
+
+  .help-callout p{
+    font-size:1.05rem;
+    line-height:1.7;
+    margin-bottom:32px;
+  }
+
+  .help-callout a{
+    display:inline-block;
+    background:#fff;
+    color:var(--blue);
+    padding:14px 36px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+  }
+
+  .hero-action .primary:hover {
+    transform: translateY(-3px);
+    background: rgba(2, 62, 138, 0.08);
+    color: #000;
+  }
+
+  .hero-action .secondary:hover {
+    transform: translateY(-3px);
+    background: rgba(2, 62, 138, 0.08);
+    color: #000;
+  }
+
+  .help-callout a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-action a,
+  .help-callout a {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+  .definition-cards{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+    display:flex;
+    gap:40px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .definition-card{
+    background:#fff;
+    padding:40px 30px;
+    max-width:420px;
+    border-radius:18px;
+    box-shadow:var(--shadow-md);
+    text-align:center;
+    border:3px solid var(--blue);
+  }
+
+  .definition-card h3{
+    font-size:1.2rem;
+    color:var(--blue);
+    margin-bottom:12px;
+  }
+
+  .definition-card p{
+    line-height:1.6;
+    color:#555;
+  }
+
+  .definition-card a{
+    display:inline-block;
+    margin-top:18px;
+    padding:10px 24px;
+    background:var(--blue);
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+  }
+
+
+  .image-section {
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding:50px 20px;
+  }
+
+  .image-section img {
+    flex:1 1 45%;
+    max-width:600px;
+    height:auto;
+    border-radius:20px;
+    box-shadow:var(--shadow-md);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .image-section img:hover {
+    transform:scale(1.03);
+    box-shadow:0 20px 35px rgba(0,0,0,0.25);
+  }
+
+  .doc-section{
+    max-width:1200px;
+    margin:70px auto;
+    padding:60px 40px;
+    background:rgba(255,255,255,0.96);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+  }
+
+  .doc-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+  }
+
+  .doc-header h2{
+    font-size:2.1rem;
+    color:var(--blue);
+    font-weight:700;
+  }
+
+  .doc-date{
+    font-size:0.85rem;
+    color:#555;
+    background:rgba(2,62,138,0.08);
+    padding:8px 16px;
+    border-radius:999px;
+    font-weight:500;
+  }
+
+  .doc-media-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+  }
+
+  .doc-media-grid img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:16px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.14);
+    transition:transform 0.3s;
+  }
+
+  .doc-media-grid img:hover{
+    transform:scale(1.03);
+  }
+
+  .doc-video-wrapper{
+    margin-top:45px;
+  }
+
+  .doc-video-wrapper video{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.2);
+  }
+
+  @media(max-width:600px){
+    .doc-media-grid{
+      grid-template-columns:1fr;
     }
 
-    .section-title {
-      color: #023e8a;
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 20px; 
-      text-align: center;
-      position: relative;
+    .doc-video-wrapper video{
+      height:260px;
     }
 
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 100%;         
-      height: 3px;         
-      background-color: #0077b6; 
-      margin: 20px auto 0 auto;  
-      border-radius: 2px;   
+    .doc-header{
+      gap:15px;
     }
 
-    .stopbad-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 60px;
-      row-gap: 28px;
-      align-items: start;
+      .hero{
+      padding: 80px 18px 70px;
     }
 
-    .column {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
+    .help-callout{
+      padding: 60px 18px;
     }
 
-    /* PILL CARDS */
-    .acro-card {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 18px 30px;
-      border-radius: 999px;
-      background: #f5f5f5;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      .hero-container{
+      grid-template-columns:1fr;
+      gap:50px;
     }
 
-    .acro-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    .hero-action{
+      max-width:420px;
+      margin:auto;
     }
 
-    .acro-letter {
-      font-size: 1.8rem;
-      font-weight: 700;
-      min-width: 30px;
-      color: #ffffff;
+    .hero-content{
+      text-align:center;
     }
 
-    .acro-text,
-    .acro-translation {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      transition: opacity 0.3s;
+    .hero-content p{
+      margin:auto;
+    }
+  }
+
+  @media(max-width:1024px){
+    header{
+      padding:16px 28px;
     }
 
-    .acro-translation {
-      position: absolute;
-      left: 70px;
-      right: 30px;
-      opacity: 0;
-      color: #fff;
+        html {
+      scroll-behavior: smooth;
     }
 
-    .acro-card:hover .acro-text {
-      opacity: 0;
+    body {
+      -webkit-overflow-scrolling: touch;
     }
 
-    .acro-card:hover .acro-translation {
-      opacity: 1;
+  }
+
+
+  @media(max-width:600px){
+    header{
+      padding:14px 16px;
     }
 
-    .stop .acro-card:nth-child(1) { background:#b36bff; }
-    .stop .acro-card:nth-child(2) { background:#4dabf7; }
-    .stop .acro-card:nth-child(3) { background:#ffd966; color:#333; }
-    .stop .acro-card:nth-child(4) { background:#9bd27d; color:#333; }
+    .logo-circle{
+      width:40px;
+      height:40px;
+    }
 
-    .bad .acro-card:nth-child(1) { background:#ff5aa5; }
-    .bad .acro-card:nth-child(2) { background:#d90429; }
-    .bad .acro-card:nth-child(3) { background:#ffc36b; color:#333; }
+    .menu-toggle{
+      display:flex;
+    }
 
-    @media (max-width: 900px) {
-      .stopbad-layout {
-        grid-template-columns: 1fr;
+    nav.primary{
+      position:absolute;
+      top:100%;
+      left:0;
+      width:100%;
+      background: rgba(255,255,255,0.96);
+      display:none;
+      flex-direction:column;
+      box-shadow:0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    nav.primary.show{
+      display:flex;
+    }
+
+    nav.primary a{
+      padding:14px;
+      font-size:0.9rem;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+      text-align:center;
+      margin:0;
+    }
+
+    footer{
+      font-size:0.75rem;
+      margin:24px 0 18px;
+    }
+
+          html {
+        scroll-behavior: smooth;
       }
 
-      .acro-card {
-        border-radius: 20px;
+      body {
+        -webkit-overflow-scrolling: touch;
       }
 
-      .acro-translation {
-        position: static;
-        opacity: 1;
-        margin-top: 6px;
+      header {
+        padding: 14px 16px;
       }
 
-      .acro-text {
-        opacity: 1;
+      .logo-circle {
+        width: 40px;
+        height: 40px;
       }
-    }
 
-    .toc {
-      position: fixed;
-      top: 120px;
-      right: 40px;
-      width: 230px;
-      background: #ffffffee; 
-      border-left: 5px solid #023e8a;
-      padding: 25px 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      z-index: 999;
-    }
+      .logo h1 {
+        font-size: 1rem;
+      }
 
-    .toc h3 {
-      margin: 0 0 15px 0;
-      font-weight: 600;
-      font-size: 1.15rem;
-      color: #023e8a;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
+      .logo p {
+        font-size: 0.65rem;
+      }
 
-    .toc ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
+      .menu-toggle {
+        display: flex;
+      }
 
-    .toc ul li {
-      margin-bottom: 12px;
-    }
-
-    .toc ul li a {
-      display: block;
-      padding: 6px 10px;
-      border-radius: 6px;
-      color: #000000;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .toc ul li a:hover {
-      background-color: #0077b620; 
-      color: #023e8a;
-    }
-
-    @media (max-width: 900px) {
-      .toc {
+      nav.primary {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.96);
         display: none;
+        flex-direction: column;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
       }
-    }
 
-    @media (max-width: 900px) {
-      .toc {
-        display: none;
+      nav.primary.show {
+        display: flex;
       }
-    }
 
-    .definition-box1, .definition-box2 {
-      background: #023e8a;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 18px 30px;
-      border-radius: 20px;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      margin-bottom: 20px;
-    }
-
-    .definition-box1:hover,
-    .definition-box2:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    }
-
-    .definition-box1 p,
-    .definition-box2 p {
-      margin: 5px 0;
-      transition: opacity 0.3s;
-    }
-
-    .definition-box1 .translation,
-    .definition-box2 .translation {
-      position: absolute;
-      top: 70px;
-      left: 30px;
-      right: 30px;
-      opacity: 0;
-    }
-
-    .definition-box1:hover .original,
-    .definition-box2:hover .original {
-      opacity: 0;
-    }
-
-    .definition-box1:hover .translation,
-    .definition-box2:hover .translation {
-      opacity: 1;
-    }
-
-    #link {
-      color: #023e8a;
-      text-decoration: none;
-      font-weight: 700;
-    }
-  </style>
+      nav.primary a {
+        padding: 14px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        text-align: center;
+        margin: 0;
+      }
+  }
+</style>
 </head>
 
 <body>
@@ -310,7 +540,13 @@
     </div>
   </div>
 
-  <nav>
+  <button class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="primary">
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="creative_corner.html">Creative Corner</a>
@@ -318,199 +554,108 @@
   </nav>
 </header>
 
-<!-- Table of Contents -->
-<aside class="toc">
-  <h3>Table of Contents</h3>
-  <ul>
-    <li><a href="#definition">Definition</a></li>
-    <li><a href="#signs">Signs of Bullied</a></li>
-  </ul>
-</aside>
+<!-- SPLIT HERO -->
+<section class="hero">
+  <div class="hero-container">
 
-<main>
-  <section id="definition" class="container">
-  <h2 class="section-title">Bullying and Discrimination</h2>
-
-    <div class="definition-box1">
-      <h3>What is Bullying?</h3>
-      <p class="original">Bullying is repeated aggressive behavior, intentional harm, or intimidation towards someone perceived as vulnerable. It can be physical, verbal, or social.</p>
-      <p class="translation">Ang pambubully ay paulit-ulit na agresibong pag-uugali, sinadyang pananakit, o pananakot sa isang tao na itinuturing na mahina. Maaari itong pisikal, berbal, o sosyal.</p>
+    <div class="hero-content">
+      <h2>Our Mission</h2>
+      <h1>Translate knowledge into action.</h1>
+      <p>
+        S.T.O.P B.A.D empowers students to respond to bullying and discrimination
+        with confidence, guidance, and real-world support.
+      </p>
     </div>
 
-    <div class="definition-box2">
-      <h3>What is Discrimination?</h3>
-      <p class="original">Discrimination is the unfair or prejudicial treatment of individuals based on characteristics such as race, gender, age, religion, or disability. It often denies people equal opportunities or rights.</p>
-      <p class="translation">Ang diskriminasyon ay hindi patas o mapanuring pagtrato sa mga indibidwal batay sa katangian tulad ng lahi, kasarian, edad, relihiyon, o kapansanan. Madalas nitong ipinagkakait ang pantay na oportunidad o karapatan sa tao.</p>
+    <div class="hero-action">
+      <h3>What can you do right now?</h3>
+      <p>
+        Whether you need immediate help or want to learn how to support others,
+        safe and trusted resources are available.
+      </p>
+      <a href="hotline.html" class="primary">Get Help Now</a>
+      <a href="about.html" class="secondary">Learn About the Program</a>
     </div>
+
+  </div>
 </section>
 
-    <section id="action" class="container">
-    <h2 class="section-title">7 Actionable Framework</h2>
+<!-- HELP CALLOUT -->
+<section class="help-callout">
+  <div class="help-inner">
+    <h2>Need Help Right Now?</h2>
+    <p>
+      If you or someone you know is experiencing bullying, discrimination,
+      or feels unsafe, help is available.
+    </p>
+    <a href="hotline.html">Get Immediate Support</a>
+  </div>
+</section>
 
-    <div class="stopbad-layout">
+<section class="definition-cards">
+  <div class="definition-card">
+    <h3>What is Bullying?</h3>
+    <p>
+      The S.T.O.P. B.A.D. framework is a simple 7-step guide to help students
+      respond effectively when facing bullying or discrimination.
+    </p>
+    <a href="https://anti-bullyingalliance.org.uk/understanding-bullying/definition" target="_blank">
+      Learn more
+    </a>
+  </div>
 
-      <!-- STOP -->
-      <div class="column stop">
-        <div class="acro-card">
-          <div class="acro-letter">S</div>
-          <p class="acro-text"><b>Seek Support:</b> Find a safe adult, a teacher, or a counselor immediately.</p>
-          <p class="acro-translation"><b>Kalungkutan:</b> Madalas malungkot o tahimik.</p>
-        </div>
+  <div class="definition-card">
+    <h3>What is Discrimination?</h3>
+    <p>
+      The S.T.O.P. B.A.D. framework is a simple 7-step guide to help students
+      respond effectively when facing bullying or discrimination.
+    </p>
+    <a href="https://anti-bullyingalliance.org.uk/understanding-bullying/definition" target="_blank">
+      Learn more
+    </a>
+  </div>
+</section>
 
-        <div class="acro-card">
-          <div class="acro-letter">T</div>
-          <p class="acro-text"><b>Tell the Truth:</b> Report the specific details of the incident via the Guidance Office.</p>
-          <p class="acro-translation"><b>Problema sa paaralan:</b> Hindi pumapasok o mababang grado.</p>
-        </div>
+<section class="image-section">
+  <img src="actionable_plan.png" alt="7 Actionable Plan">
+  <img src="stakeholders.png" alt="7 Stakeholders">
+</section>
 
-        <div class="acro-card">
-          <div class="acro-letter">O</div>
-          <p class="acro-text"><b>Observe & Own:</b> Note the facts, the who, what, and where; take ownership of the decision to stand up/report.</p>
-          <p class="acro-translation"><b>Sobrang iritasyon:</b> Biglaang galit o iyak.</p>
-        </div>
+<section class="doc-section">
 
-        <div class="acro-card">
-          <div class="acro-letter">P</div>
-          <p class="acro-text"><b>Protect Yourself/Others:</b> Move away from the situation and use safe coping skills.</p>
-          <p class="acro-translation"><b>Mga marka:</b> Hindi maipaliwanag na pasa.</p>
-        </div>
-      </div>
+  <div class="doc-header">
+    <h2>Program Documentation</h2>
+    <div class="doc-date">January – March 2025</div>
+  </div>
 
-      <!-- BAD -->
-      <div class="column bad">
-        <div class="acro-card">
-          <div class="acro-letter">B</div>
-          <p class="acro-text"><b>Be an Upstander:</b> Intervene safely by distracting, calling for help, or supporting the victim.</p>
-          <p class="acro-translation"><b>Pag-iisa:</b> Iniiwasan ang kaibigan.</p>
-        </div>
+  <div class="doc-media-grid">
+    <img src="update1.jpg" alt="Documentation image 1">
+    <img src="update2.jpg" alt="Documentation image 2">
+    <img src="update3.jpg" alt="Documentation image 3">
+  </div>
 
-        <div class="acro-card">
-          <div class="acro-letter">A</div>
-          <p class="acro-text"><b>Access Resources:</b> Use the S.T.O.P. B.A.D. website and hotline numbers for help.</p>
-          <p class="acro-translation"><b>Pag-aalala:</b> Takot sa ilang tao.</p>
-        </div>
+  <div class="doc-video-wrapper">
+    <video controls>
+      <source src="program_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-        <div class="acro-card">
-          <div class="acro-letter">D</div>
-          <p class="acro-text"><b>Do Not Engage:</b> Do not retaliate, argue, or share rumors/online posts about the incident.</p>
-          <p class="acro-translation"><b>Mababang tiwala:</b> Panghuhusga sa sarili.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
+</section>
 
 
-    <section id="stakeholders" class="container">
-    <h2 class="section-title">7 Stakeholders</h2>
+<footer>
+  <p>© 2025 S.T.O.P B.A.D Program. All Rights Reserved.</p>
+</footer>
 
-    <div class="stopbad-layout">
+<script>
+const toggleBtn=document.querySelector(".menu-toggle");
+const nav=document.querySelector("nav.primary");
 
-      <div class="column stop">
-        <div class="acro-card">
-          <div class="acro-letter">S</div>
-          <p class="acro-text"><b>Students:</b> Leads the peer-to-peer workshops and monitors the school climate.</p>
-          <p class="acro-translation"><b>Kalungkutan:</b> Madalas malungkot o tahimik.</p>
-        </div>
+toggleBtn.addEventListener("click",()=>{
+  nav.classList.toggle("show");
+});
+</script>
 
-        <div class="acro-card">
-          <div class="acro-letter">T</div>
-          <p class="acro-text"><b>Teachers:</b> Enforces the policy consistently in their classrooms and reports observations.</p>
-          <p class="acro-translation"><b>Problema sa paaralan:</b> Hindi pumapasok o mababang grado.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">O</div>
-          <p class="acro-text"><b>Organizations:</b> Provides continuous oversight, external resources, annual review.</p>
-          <p class="acro-translation"><b>Sobrang iritasyon:</b> Biglaang galit o iyak.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">P</div>
-          <p class="acro-text"><b>Parents:</b> Unexplained injuries.</p>
-          <p class="acro-translation"><b>Mga marka:</b> Hindi maipaliwanag na pasa.</p>
-        </div>
-      </div>
-
-      <!-- BAD -->
-      <div class="column bad">
-        <div class="acro-card">
-          <div class="acro-letter">B</div>
-          <p class="acro-text"><b>Bystanders:</b> The primary target for behavioral change and reporting.</p>
-          <p class="acro-translation"><b>Pag-iisa:</b> Iniiwasan ang kaibigan.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">A</div>
-          <p class="acro-text"><b>Authorities:</b> Fear or nervousness.</p>
-          <p class="acro-translation"><b>Pag-aalala:</b> Takot sa ilang tao.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">D</div>
-          <p class="acro-text"><b>Data:</b> The <a id="link" href="about.us">Stop Bad Program</a>.</p>
-          <p class="acro-translation"><b>Mababang tiwala:</b> Panghuhusga sa sarili.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="signs" class="container">
-    <h2 class="section-title">Signs of Bullying (S.T.O.P B.A.D)</h2>
-
-    <div class="stopbad-layout">
-
-      <div class="column stop">
-        <div class="acro-card">
-          <div class="acro-letter">S</div>
-          <p class="acro-text"><b>Sadness:</b> Often unhappy or withdrawn.</p>
-          <p class="acro-translation"><b>Kalungkutan:</b> Madalas malungkot o tahimik.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">T</div>
-          <p class="acro-text"><b>Trouble at school:</b> Avoidance or poor performance.</p>
-          <p class="acro-translation"><b>Problema sa paaralan:</b> Hindi pumapasok o mababang grado.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">O</div>
-          <p class="acro-text"><b>Overstimulation:</b> Mood swings or anger.</p>
-          <p class="acro-translation"><b>Sobrang iritasyon:</b> Biglaang galit o iyak.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">P</div>
-          <p class="acro-text"><b>Physical marks:</b> Unexplained injuries.</p>
-          <p class="acro-translation"><b>Mga marka:</b> Hindi maipaliwanag na pasa.</p>
-        </div>
-      </div>
-
-      <!-- BAD -->
-      <div class="column bad">
-        <div class="acro-card">
-          <div class="acro-letter">B</div>
-          <p class="acro-text"><b>Being isolated:</b> Avoiding friends.</p>
-          <p class="acro-translation"><b>Pag-iisa:</b> Iniiwasan ang kaibigan.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">A</div>
-          <p class="acro-text"><b>Anxiety:</b> Fear or nervousness.</p>
-          <p class="acro-translation"><b>Pag-aalala:</b> Takot sa ilang tao.</p>
-        </div>
-
-        <div class="acro-card">
-          <div class="acro-letter">D</div>
-          <p class="acro-text"><b>Derogatory self-talk:</b> Negative self-image.</p>
-          <p class="acro-translation"><b>Mababang tiwala:</b> Panghuhusga sa sarili.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
 </body>
 </html>
-
-
