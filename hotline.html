@@ -286,7 +286,7 @@
   </button>
 
   <nav class="primary">
-    <a href="index.html">Home</a>
+    <a href="home.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="creative_corner.html">Creative Corner</a>
     <a href="hotline.html">Hotline</a>
@@ -310,47 +310,47 @@
 </footer>
 
 <script>
-  const toggleBtn = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("nav.primary");
+const toggleBtn = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav.primary");
 
-  toggleBtn.addEventListener("click", () => {
-    nav.classList.toggle("show");
+toggleBtn.addEventListener("click", () => {
+  nav.classList.toggle("show");
+});
+
+const hotlines = [
+  {name:"In-touch", number:"+639190560709", description:"Immediate assistance and guidance."},
+  {name:"NCMH Crisis Hotline", number:"0919 057 1553", description:"24/7 mental health support."},
+  {name:"Quezon City Helpline", number:"122", description:"Local emergency assistance."},
+  {name:"Hopeline PH", number:"+63 2 8804 4673", description:"Emotional support hotline."},
+  {name:"PNP WCPC", number:"+63 2 8352 6690", description:"Protection for women and children."},
+  {name:"DepEd Child Protection Unit", number:"+63 995 921 8461", description:"School child safety support."},
+  {name:"Bantay Bata", number:"163", description:"Child abuse reporting hotline."}
+];
+
+const hotlineList = document.getElementById("hotlineList");
+const searchInput = document.getElementById("searchInput");
+
+function displayHotlines(list) {
+  hotlineList.innerHTML = "";
+  list.forEach(h => {
+    hotlineList.innerHTML += `
+      <div class="hotline-card">
+        <h3>${h.name}</h3>
+        <p>${h.description}</p>
+        <p>Phone: <a href="tel:${h.number}">${h.number}</a></p>
+      </div>`;
   });
+}
 
-  const hotlines = [
-    {name:"In-touch", number:"+639190560709", description:"Immediate assistance and guidance."},
-    {name:"NCMH Crisis Hotline", number:"0919 057 1553", description:"24/7 mental health support."},
-    {name:"Quezon City Helpline", number:"122", description:"Local emergency assistance."},
-    {name:"Hopeline PH", number:"+63 2 8804 4673", description:"Emotional support hotline."},
-    {name:"PNP WCPC", number:"+63 2 8352 6690", description:"Protection for women and children."},
-    {name:"DepEd Child Protection Unit", number:"+63 995 921 8461", description:"School child safety support."},
-    {name:"Bantay Bata", number:"163", description:"Child abuse reporting hotline."}
-  ];
+displayHotlines(hotlines);
 
-  const hotlineList = document.getElementById("hotlineList");
-  const searchInput = document.getElementById("searchInput");
-
-  function displayHotlines(list) {
-    hotlineList.innerHTML = "";
-    list.forEach(h => {
-      hotlineList.innerHTML += `
-        <div class="hotline-card">
-          <h3>${h.name}</h3>
-          <p>${h.description}</p>
-          <p>Phone: <a href="tel:${h.number}">${h.number}</a></p>
-        </div>`;
-    });
-  }
-
-  displayHotlines(hotlines);
-
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-    displayHotlines(hotlines.filter(h =>
-      h.name.toLowerCase().includes(query) ||
-      h.description.toLowerCase().includes(query)
-    ));
-  });
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  displayHotlines(hotlines.filter(h =>
+    h.name.toLowerCase().includes(query) ||
+    h.description.toLowerCase().includes(query)
+  ));
+});
 </script>
 
 </body>
