@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="logo.png" />
-  <title> S.T.O.P B.A.D Program - Creative Corner</title>
+  <title>Creative Corner – S.T.O.P B.A.D Program</title>
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -209,7 +209,7 @@
 
     .creative-img {
       width: 100%;
-      height: 220px;
+      height: 400px;
       border-radius: 18px;
       object-fit: cover;
       background: #ddd;
@@ -237,11 +237,19 @@
     .modal {
       display: none;
       position: fixed;
-      z-index: 3000;
-      padding-top: 60px;
       inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
+      z-index: 3000;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+        #caption {
+      display: none;
     }
 
     .modal-content {
@@ -364,8 +372,8 @@
       }
 
       .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
       .creative-img {
@@ -378,7 +386,7 @@
       }
     }
 
-   media (max-width: 1024px) {
+   @media (max-width: 1024px) {
     html {
       scroll-behavior: smooth;
     }
@@ -415,7 +423,6 @@
       }
     }
 
-
   </style>
 </head>
 
@@ -449,68 +456,557 @@
     Welcome to the Creative Corner! — a space dedicated to showcasing the talents and creativity of Commonwealth High School students across all grade levels and sections. This platform features the outputs of students from their respective sections, created through the implementation of the S.T.O.P. B.A.D. program.
   </p>
 
-  <div class="filter-buttons">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="art">Art</button>
-    <button class="filter-btn" data-category="poem">Poems</button>
-    <button class="filter-btn" data-category="poster">Posters</button>
-    <button class="filter-btn" data-category="slogan">Slogans</button>
-  </div>
+<div class="filter-buttons">
+  <button class="filter-btn active" data-category="all">All</button>
+  <button class="filter-btn" data-category="poster">Posters</button>
+  <button class="filter-btn" data-category="slogan">Slogans</button>
+  <button class="filter-btn" data-category="poem">Poems</button>
+  <button class="filter-btn" data-category="spoken_poetry">Spoken Poetry</button>
+  <button class="filter-btn" data-category="essay">Essays</button>
+  <button class="filter-btn" data-category="songs">Songs</button>
+</div>
+
 
   <div class="gallery-grid" id="gallery">
+
+    <!--Posters-->
+
     <div class="creative-card" data-category="poster">
-      <img class="creative-img" src="poster_sample.jpg" alt="">
-      <h4>Title</h4>
-      <p>Creator</p>
+      <img class="creative-img" src="creative_outputs/posters/AceDelaCruz.jpeg" alt="">
+      <h4>Ace Dela Cruz</h4>
+      <p>Grade 10 - Kyanite</p>
     </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/AlisonKatePuno10-diopside.jpg" alt="">
+      <h4>Alison Kate Puno</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/ANGELESHEINZLESTERJ10-DIOPSIDE.jpg" alt="">
+      <h4>Heinz Lester J. Angeles</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/ASIMAHJAMAL-LABRADORITE.jpg" alt="">
+      <h4>Asimah Jamahal</h4>
+      <p>Grade 10 - Labradorite</p>
+    </div>
+
+        <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/AYESHAG.VILLARTE-LABRADORITE.png" alt="">
+      <h4>Ayesha G. Villarte</h4>
+      <p>Grade 10 - Labradorite</p>
+    </div>
+
+     <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Babasa-Kyanite.jpeg" alt="">
+      <h4>Ram Jhaden O. Babasa</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Beverlypanoy ,10-kyanite.png" alt="">
+      <h4>Beverly Panoy</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Bulala-Kyanite.jpeg" alt="">
+      <h4>Jhon Carl Bulala</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+        <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/CASSIEYAVRIELLEBONINA10- KYANITE.jpg" alt="">
+      <h4>Cassiey Avrielle Bonina</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+      <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Castillo-Kyanita.jpeg" alt="">
+      <h4>Kyle P. Castillo</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+      <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/CATHYGOC-ONG-LABRADORITE.jpeg" alt="">
+      <h4>Cathy Mae A. Goc-Ong</h4>
+      <p>Grade 10 - Labradorite</p>
+    </div>
+
+          <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Carmona_Pogi123.jpg" alt="">
+      <h4>Miles Darwin Carmona</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+              <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/CrystalMaidenMallillin10moonstone.png" alt="">
+      <h4>Crystal Maiden Mallillin</h4>
+      <p>Grade 10 - Moonstone/p>
+    </div>
+
+                  <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/d9847dd1c168c7796c063e0ae7be16f4.jpeg" alt="">
+      <h4>Grade 10</h4>
+      <p></p>
+    </div>
+
+                  <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/ElaizaEdB.Banal10-Spinel.png" alt="">
+      <h4>Elaizaed B. Banal</h4>
+      <p>Grade 10 - Spinel</p>
+    </div>
+
+                  <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/EmmanuelJacobSumpay10-Diopside.png" alt="">
+      <h4>Emmanuel Jacob Sumpay</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+     <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/ExodusAaron.jpg" alt="">
+      <h4>Exodus Aaron</h4>
+      <p>Grade 10</p>
+    </div>
+
+         <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Fabricante-Morion.jpg" alt="">
+      <h4>Fabricante</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+
+            <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/Ferrer-Labradorite.jpg" alt="">
+      <h4>Khrislyn Ferrer</h4>
+      <p>Grade 10 - Labradorite</p>
+    </div>
+
+                <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/JaimhayAntonetteD.Resoso10-diopside.png" alt="">
+      <h4>Jaimhay Antonette D. Resoso</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/JhannaMaeMariano10-diopside.jpg" alt="">
+      <h4>Jhanna Mae Mariano</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+     <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/johnMikelD.laroa10-sunstone.png" alt="">
+      <h4>John Mikel D. Laroa</h4>
+      <p>Grade 10 - Sunstone</p>
+    </div>
+
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/JohnTraballoAlama10-Diopside.jpg" alt="">
+      <h4>John Traballo Alama</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/KathleneKeithG.Ferguson10-Kyanite.png" alt="">
+      <h4>Kathlene Keith G. Ferguson</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+        <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/SHANECALVENTOS.jpg" alt="">
+      <h4>Shane Calventos</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+            <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/StevenAlo10-Diopside.jpg" alt="">
+      <h4>Steven Alo</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+                <div class="creative-card" data-category="poster">
+      <img class="creative-img" src="creative_outputs/posters/TURNINO,RICAJ.10-ONYX.png" alt="">
+      <h4>Rica J. Turnino</h4>
+      <p>Grade 10 - Onyx</p>
+    </div>
+
+    <!--Slogans-->
+
+        <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/a739b1cb39fc995f58a682a9884d20ee.jpeg" alt="">
+      <h4>Johnrey Simolde</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+            <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/A.Salvacion-Morion.jpeg" alt="">
+      <h4>Princess Angelica Mae P. Palima</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
     <div class="creative-card" data-category="slogan">
-      <img class="creative-img" src="slogan_bg.jpg" alt="">
-      <h4>Title</h4>
-      <p>Creator</p>
+      <img class="creative-img" src="creative_outputs/slogans/Alano-Labradorite.jpg" alt="">
+      <h4>Sean Dave L. Alano</h4>
+      <p>Grade 10 - Labradorite</p>
     </div>
-    <div class="creative-card" data-category="art">
-      <img class="creative-img" src="art_sample1.jpg" alt="">
-      <h4>Title</h4>
-      <p>Creator</p>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/AllanJeanIsrael10-Diopside.png" alt="">
+      <h4>Allen Jean Israel</h4>
+      <p>Grade 10 - Diopside</p>
     </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/AndelaineAvrilLampaza10Diopside.png" alt="">
+      <h4>Andelaine Avril Lampaza</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Andres-Morion.jpg" alt="">
+      <h4>Alexa Kaillie C. Andres</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/ASHLEYREMILLETE10DIOPSIDE.jpg" alt="">
+      <h4>Ashley Remillete</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+        <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/att.CguX3nZ6bFXYra_n3gB3aNFrwN9lnC54xB9KQ-Aldv0.jpg" alt="">
+      <h4>Wenn Gabriel Nebres</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/att.pesWdFvNm9oyS_Wa_DXCYjCMpxIMLwKnlVwCnerPb-s.jpg" alt="">
+      <h4>Grade 10</h4>
+      <p></p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/att.T3zUT5lV5_xMBvzkWNuuCjcgukfw0HAH10pdOW4YJL0.png.jpeg" alt="">
+      <h4>Grade 10</h4>
+      <p></p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/att.Wb5r-5D07EUighaSnnZXbqip23lm4ZJ_0bozj0gz4LM.jpeg" alt="">
+      <h4>Grade 10</h4>
+      <p></p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Ayesha-Kyanite.jpg" alt="">
+      <h4>Ayesha</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Baldomero-Morion.jpg" alt="">
+      <h4>Calix DL. Baldomero</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Canaria-Labradorite.jpg" alt="">
+      <h4>Rica Canaria</h4>
+      <p>Grade 10 - Labradorite</p>
+    </div>
+
+        <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Contado-Kyanite.jpeg" alt="">
+      <h4>Gian Terrence V. Contado</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+            <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/CopyofCaballes_slogan11STEMDELMUNDO.jpg" alt="">
+      <h4>Vanessa Merjorie Caballes</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/cayabyab.jpg" alt="">
+      <h4>Jade Nicole P. Cayabyab</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/ramos.jpeg" alt="">
+      <h4>Gerard Joseph Ramos</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/leomar.jfif" alt="">
+      <h4>John Leomar Reubenecia</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/CristelJebulan10-Diopside.jpg" alt="">
+      <h4>Cristel Jebulan</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/CrizJyanAvila10-Diopside.jpg" alt="">
+      <h4>Criz Jyan Avila</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+        <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/DaisyMay Landicho10-Diopside.jpg" alt="">
+      <h4>Daisy May Landicho</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/DaninaMorion.jpg" alt="">
+      <h4>Danina</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/DELANTAR-MORION.jpeg" alt="">
+      <h4>Rowin Delantar</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/FrencessDellMuring10-diopside.jpg" alt="">
+      <h4>Frencess Dell Muring</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Gastalla-ONYX.jpg" alt="">
+      <h4>Eziekhel Jamil F. Gastalla</h4>
+      <p>Grade 10 - Onyx</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/J.CAPIN-KYANITE.png" alt="">
+      <h4>Jhamira Izza P. Capin</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/JenelynS.Arana10-Diopside.jpg" alt="">
+      <h4>Jenelyn S. Arana</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/JILLIANMORE10-SUNSTONE.png" alt="">
+      <h4>Jillian More</h4>
+      <p>Grade 10 - Sunstone</p>
+    </div>
+
+        <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/JingkyCoquia10-Sunstone.png" alt="">
+      <h4>Jingky Coquia</h4>
+      <p>Grade 10 - Sunstone</p>
+    </div>
+
+            <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/KhyleRandellC.Ubas10-Diopside.png" alt="">
+      <h4>Khyle Randell C. Ubas</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+           <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/LadyEvelynR.Quijano10-Kyanite.png" alt="">
+      <h4>Lady Evelyn R. Quijano</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+
+
+           <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/LuisAaronAzarcon10-Sunstone.png" alt="">
+      <h4>Luis Aaron Azarcon</h4>
+      <p>Grade 10 - Sunstone</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/MarvilineBullecer10-diopside.jpg" alt="">
+      <h4>Marviline Bullecer</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/sloganAlloysiusCabacang.png" alt="">
+      <h4>Alloysius Cabacang</h4>
+      <p>Grade 10</p>
+    </div>
+
+    <div class="creative-card" data-category="slogan">
+      <img class="creative-img" src="creative_outputs/slogans/Slogan_RazulC.Biasong.png" alt="">
+      <h4>Razul C. Biasong</h4>
+      <p>Grade 10 - Diopside</p>
+    </div>
+
+    <!--Poem-->
+
     <div class="creative-card" data-category="poem">
-      <img class="creative-img" src="poem_bg.jpg" alt="">
-      <h4>Title</h4>
-      <p>Creator</p>
+      <img class="creative-img" src="creative_outputs/poem/Apdan-Labradorite.jpeg" alt="">
+      <h4>Chris Danielle Apdan</h4>
+      <p>Grade 10 - Labradorite</p>
     </div>
+
+        <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="creative_outputs/poem/BOLLEDO11STEMFDELMUNDO.jpg" alt="">
+      <h4>Jamirah Nicole Bolledo</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="creative_outputs/poem/CashmerO.Colesare-10ONYX.png" alt="">
+      <h4>Cashmer O. Colesare</h4>
+      <p>Grade 10 - Onyx</p>
+    </div>
+
+    <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="creative_outputs/poem/gacutan.png" alt="">
+      <h4>Izza Angela Gacutan</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="creative_outputs/poem/d12386c0dc092fe0b3d7f130874d2ef8.jpeg" alt="">
+      <h4>Grade 10</h4>
+      <p></p>
+    </div>
+
+    <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="creative_outputs/poem/FRANCISCO_ONYX.jpg" alt="">
+      <h4>Hazel Cane E. Francisco</h4>
+      <p>Grade 10 - Onyx</p>
+    </div>
+
+    <div class="creative-card" data-category="poem">
+      <img class="creative-img" src="creative_outputs/poem/ferrer.png" alt="">
+      <h4>Christian Kyle Ferrer</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+
+    <!--Essay-->
+
+    <div class="creative-card" data-category="essay">
+      <img class="creative-img" src="creative_outputs/essay/oasan.jpg" alt="">
+      <h4>Maireine D. Osan</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+</div>
+
+      <div class="creative-card" data-category="essay">
+      <img class="creative-img" src="creative_outputs/essay/claveria.jpg" alt="">
+      <h4>Dyzie Mae Claveria</h4>
+      <p>Grade 11 STEM - Del Mundo</p>
+    </div>
+</div>
+
+  <!--Spoken poetry-->
+      <div class="creative-card" data-category="spoken_poetry">
+      <img class="creative-img" src="creative_outputs/spoken_poetry/J. Sumampong-Morion.png" alt="">
+      <h4>Jean Rose Sumampong</h4>
+      <p>Grade 10 - Morion</p>
+    </div>
+      <div class="creative-card" data-category="spoken_poetry">
+      <img class="creative-img" src="creative_outputs/spoken_poetry/JamesHarrySpokenPoetryPiece10Kyanite.jpg" alt="">
+      <h4>James Harry S. Torrefiel</h4>
+      <p>Grade 10 - Kyanite</p>
+    </div>
+</div>
+  </div>
+<footer>
+  <p>© 2025 S.T.O.P B.A.D Program. All Rights Reserved.</p>
+</footer>
 
     <div id="imgModal" class="modal">
       <span class="close">&times;</span>
       <img class="modal-content" id="modalImg">
       <div id="caption"></div>
     </div>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 S.T.O.P B.A.D Program. All Rights Reserved.</p>
-</footer>
 
 <script>
   const toggleBtn = document.querySelector('.menu-toggle');
   const nav = document.querySelector('nav.primary');
+
   toggleBtn.addEventListener('click', () => {
     nav.classList.toggle('show');
-    toggleBtn.classList.toggle('active');
+  });
+
+  const cardsContainer = document.getElementById("gallery");
+  const cards = Array.from(document.querySelectorAll(".creative-card"));
+
+  function sortAlphabetically() {
+    const sortedCards = cards.slice().sort((a, b) => {
+      const nameA = a.querySelector("h4").textContent.trim().toLowerCase();
+      const nameB = b.querySelector("h4").textContent.trim().toLowerCase();
+      return nameA.localeCompare(nameB);
+    });
+
+    cardsContainer.innerHTML = "";
+    sortedCards.forEach(card => {
+      card.style.display = "block";
+      cardsContainer.appendChild(card);
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', sortAlphabetically);
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const category = button.dataset.category;
+
+      if (category === "all") {
+        sortAlphabetically();
+      } else {
+        cards.forEach(card => {
+          if (card.dataset.category === category) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+    });
   });
 
   const modal = document.getElementById("imgModal");
   const modalImg = document.getElementById("modalImg");
-  const captionText = document.getElementById("caption");
+
   document.querySelectorAll(".creative-img").forEach(img => {
     img.style.cursor = "pointer";
-    img.onclick = () => {
-      modal.style.display = "block";
+    img.addEventListener("click", () => {
+      modal.classList.add("show");
       modalImg.src = img.src;
-      captionText.innerHTML = img.parentElement.querySelector("h4").innerText;
-    };
+    });
   });
-  document.querySelector(".close").onclick = () => { modal.style.display = "none"; };
+
+  document.querySelector(".close").addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      modal.classList.remove("show");
+    }
+  });
 </script>
 </body>
 </html>
